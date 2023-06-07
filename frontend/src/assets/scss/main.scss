@@ -1,0 +1,30 @@
+// Archivo de importaciones de todos los estilos
+
+@import "./base/_reset";
+@import "./base/_background";
+
+@import "./components/_header";
+@import "./components/_loader";
+@import "./components/_carrusel";
+@import "./components/_carteleraUnica";
+@import "./components/_cartelera";
+@import "./components/_topEsperadas";
+@import "./components/_captureBackground";
+@import "./components/_pagination";
+@import "./components/_infoMovie";
+@import "./components/_ticketMovie";
+@import "./components/_error";
+@import "./components/_votoPelicula";
+@import "./components/_opinionsMovie";
+@import "./components/_modalConfirmacion";
+@import "./components/_modalForm";
+@import "./components/_menu";
+@import "./components/_LRUser";
+@import "./components/_formErrors";
+@import "./components/_editUser";
+
+@import "./views/_index";
+@import "./views/_movieDetails";
+@import "./views/_catalogo";
+
+@import '@splidejs/vue-splide/css';
