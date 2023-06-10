@@ -86,7 +86,7 @@ import { getLoggedUser } from "../../store/user";
  * @vue-data {boolean} [modPassOk = true] - Indica si la contraseña es válida
  */
 export default {
-    name: "Contact",
+    name: "EditUser",
     props: {
     needProfile: {
         type: Boolean,

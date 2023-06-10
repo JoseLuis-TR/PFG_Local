@@ -3,7 +3,6 @@ services:
   db:
     container_name: db
     image: mysql:8.0
-    hostname: VIP
     environment:
       MYSQL_DATABASE: cineshaven
       MYSQL_USER: root123
@@ -14,8 +13,9 @@ services:
     expose:
       - 3307
     volumes:
-      - ./dumpPFG.sql:/docker-entrypoint-initcinesDB.d/dumpPFG.sql
-    command: --init-file /docker-entrypoint-initcinesDB.d/dumpPFG.sql
+      - ./dumpSQL:/docker-entrypoint-initdb.d
+      - /mysql/home:/docker-entrypoint-initdb.d
+    #command: --init-file /docker-entrypoint-initdb.d/dumpPFG.sql
   
   backend:
     container_name: springbackend
