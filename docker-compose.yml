@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   db:
     container_name: db
@@ -16,7 +16,7 @@ services:
       - ./dumpSQL:/docker-entrypoint-initdb.d
       - /mysql/home:/docker-entrypoint-initdb.d
     #command: --init-file /docker-entrypoint-initdb.d/dumpPFG.sql
-  
+
   backend:
     container_name: springbackend
     build:
@@ -26,7 +26,7 @@ services:
       - "8080:8080"
     depends_on:
       - db
-    command: sh -c 'bash /app/wait-for-it.sh db:3306 -t 30 -- java -jar target/PFG_haven-0.0.1-SNAPSHOT.jar'
+    command: sh -c 'bash /app/wait-for-it.sh db:3306 -t 60 -- java -jar target/PFG_haven-0.0.1-SNAPSHOT.jar'
 
   frontend:
     container_name: vuefrontend
@@ -34,6 +34,6 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "8081:5173"
+      - "5173:5173"
     depends_on:
       - backend
