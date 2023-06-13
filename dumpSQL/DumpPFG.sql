@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: localhost    Database: cineshaven
+-- Host: 127.0.0.1    Database: cineshaven
 -- ------------------------------------------------------
--- Server version	8.0.33
+-- Server version	8.0.31
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -61,7 +61,7 @@ CREATE TABLE `comentario` (
   KEY `fk_Usuario_has_Pelicula_Usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_Usuario_has_Pelicula_Pelicula1` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Pelicula_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,6 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
-INSERT INTO `comentario` VALUES (1,1,2,'Lorem Ipsum','2023-05-09 21:00:28'),(3,1,7,'probon:)123','2023-06-07 02:41:17'),(4,2,7,'Esto es una prueba real','2023-06-07 02:44:01');
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +92,7 @@ CREATE TABLE `pelicula` (
   `votos` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -102,7 +101,6 @@ CREATE TABLE `pelicula` (
 
 LOCK TABLES `pelicula` WRITE;
 /*!40000 ALTER TABLE `pelicula` DISABLE KEYS */;
-INSERT INTO `pelicula` VALUES (1,'Pericles on 31st Street','Athene Rodrigo',1,'','http://dummyimage.com/1080x1920.png/ff4444/ffffff','http://dummyimage.com/138x100.png/5fa2dd/ffffff','vel augue vestibulum ante ipsum primis in faucibus orci luctus et ultrices',0),(2,'Five Minarets in New York (Act of Vengeance) (Terrorist, The0)22','Edna Pantone',2,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/1080x1920.png/ff4444/ffffff','http://dummyimage.com/167x100.png/dddddd/000000','lectus in quam fringilla rhoncus mauris enim leo rhoncus sed',0),(3,'Silver City','Silvain Orans',3,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/1080x1920.png/cc0000/ffffff','http://dummyimage.com/192x100.png/ff4444/ffffff','blandit non interdum in ante vestibulum ante ipsum primis in',0),(4,'Enemy','Josias De Ruggiero',4,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/1080x1920.png/dddddd/000000','http://dummyimage.com/245x100.png/cc0000/ffffff','mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis',0),(5,'Woman in the Window, The','Briana Burgiss',5,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/1080x1920.png/dddddd/000000','http://dummyimage.com/166x100.png/dddddd/000000','ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean',0),(6,'Lawrence of Arabia','Kelwin Mynett',6,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/1080x1920.png/cc0000/ffffff','http://dummyimage.com/240x100.png/5fa2dd/ffffff','sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel',0),(7,'Dante\'s Inferno','Yorgos Vigne',7,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/1080x1920.png/cc0000/ffffff','http://dummyimage.com/149x100.png/cc0000/ffffff','ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis',0),(8,'My Lady Margarine (Die Austernprinzessin) (Oyster Princess, The)','Liuka Radin',8,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/184x100.png/ff4444/ffffff','http://dummyimage.com/122x100.png/dddddd/000000','augue a suscipit nulla elit ac nulla sed vel enim',0),(9,'Actress, the Dollars and the Transylvanians, The (Artista, dolarii si Ardelenii)','Janis Dybald',9,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/246x100.png/dddddd/000000','http://dummyimage.com/215x100.png/cc0000/ffffff','augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in',0),(10,'Wild Bill2','Gerti Lain',10,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/228x100.png/5fa2dd/ffffff','http://dummyimage.com/219x100.png/cc0000/ffffff','ultrices vel augue vestibulum ante ipsum primis in faucibus orci luctus et',0),(11,'Beowulf','Hyacinthe Hiorn',11,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/137x100.png/ff4444/ffffff','http://dummyimage.com/124x100.png/cc0000/ffffff','sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh',0),(14,'The Great Flamenco','Sven Antonias',142,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/189x100.png/ff4444/ffffff','http://localhost:8080/files/1686352070796_FxP7oqgagAEVSpe.jpg','platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate',0),(17,'Happy Feet','Wang Fardon',17,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/250x100.png/cc0000/ffffff','http://dummyimage.com/108x100.png/cc0000/ffffff','vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue',0),(19,'Incredible Hulk Returns, The','Kin Durling',19,'https://youtu.be/9aHQnDTd1y4','http://dummyimage.com/172x100.png/cc0000/ffffff','http://dummyimage.com/144x100.png/dddddd/000000','sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut',0),(21,'Oldboy123','Park Chan-Wook',90,'https://youtu.be/9aHQnDTd1y4','http://localhost:8080/files/1684833168698_posterEjemplo.png','http://localhost:8080/files/1684833168714_capturaEjemplo.png','Busca venganza',0);
 /*!40000 ALTER TABLE `pelicula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +121,7 @@ CREATE TABLE `reserva` (
   KEY `fk_Reserva_Sesion1_idx` (`id_sesion`),
   CONSTRAINT `fk_Reserva_Sesion1` FOREIGN KEY (`id_sesion`) REFERENCES `sesion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Reserva_Usuario1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,7 +130,6 @@ CREATE TABLE `reserva` (
 
 LOCK TABLES `reserva` WRITE;
 /*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
-INSERT INTO `reserva` VALUES (1,'2023-05-09',1,1),(2,'2023-05-09',1,1),(3,'2023-05-22',1,3),(4,'2023-05-22',1,1);
 /*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -152,7 +149,7 @@ CREATE TABLE `reserva_tiene_asiento` (
   KEY `fk_Reserva_has_Asiento_Reserva1_idx` (`id_reserva`),
   CONSTRAINT `fk_Reserva_has_Asiento_Asiento1` FOREIGN KEY (`id_asiento`) REFERENCES `asiento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Reserva_has_Asiento_Reserva1` FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -161,7 +158,6 @@ CREATE TABLE `reserva_tiene_asiento` (
 
 LOCK TABLES `reserva_tiene_asiento` WRITE;
 /*!40000 ALTER TABLE `reserva_tiene_asiento` DISABLE KEYS */;
-INSERT INTO `reserva_tiene_asiento` VALUES (1,1,1),(2,1,2),(3,1,3),(4,2,1),(5,2,2),(6,2,3),(7,4,1),(8,4,2),(9,4,3);
 /*!40000 ALTER TABLE `reserva_tiene_asiento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,7 +205,7 @@ CREATE TABLE `sesion` (
   KEY `fk_Sala_has_Pelicula_Sala1_idx` (`id_sala`),
   CONSTRAINT `fk_Sala_has_Pelicula_Pelicula1` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Sala_has_Pelicula_Sala1` FOREIGN KEY (`id_sala`) REFERENCES `sala` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +214,6 @@ CREATE TABLE `sesion` (
 
 LOCK TABLES `sesion` WRITE;
 /*!40000 ALTER TABLE `sesion` DISABLE KEYS */;
-INSERT INTO `sesion` VALUES (1,1,1,'2023-05-02','19:00:00'),(2,2,2,'2023-05-02','19:00:00'),(3,3,3,'2023-05-02','19:00:00'),(4,1,1,'2023-06-03','19:00:00'),(5,1,1,'2023-06-04','19:00:00'),(6,2,1,'2023-06-05','19:00:00'),(7,3,1,'2023-06-06','19:00:00'),(8,1,7,'2023-06-07','19:00:00'),(9,2,1,'2023-08-08','19:00:00'),(10,2,1,'2023-08-09','20:30:00'),(11,2,1,'2023-08-10','21:30:00'),(13,1,1,'2023-06-03','21:00:00');
 /*!40000 ALTER TABLE `sesion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -230,7 +225,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`%`*/ /*!50003 TRIGGER `sesion_AFTER_INSERT` AFTER INSERT ON `sesion` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`PFGUser`@`localhost`*/ /*!50003 TRIGGER `sesion_AFTER_INSERT` AFTER INSERT ON `sesion` FOR EACH ROW BEGIN
 	UPDATE pelicula
     SET votos = 0
     WHERE id = NEW.id_pelicula;
@@ -249,7 +244,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`%`*/ /*!50003 TRIGGER `sesion_AFTER_UPDATE` AFTER UPDATE ON `sesion` FOR EACH ROW BEGIN
+/*!50003 CREATE*/ /*!50017 DEFINER=`PFGUser`@`localhost`*/ /*!50003 TRIGGER `sesion_AFTER_UPDATE` AFTER UPDATE ON `sesion` FOR EACH ROW BEGIN
 	UPDATE pelicula
     SET votos = 0
     WHERE id = NEW.id_pelicula;
@@ -277,7 +272,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nick_UNIQUE` (`nick`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,7 +281,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'root','admin@gmail.com','pestillo123','http://localhost:8080/files/1686355754991_ad4c50132bd523560a7e7e7eb36d20e4.jpg','ADMIN'),(2,'probon','prueba@prueba.com','pestillo123','http://localhost:8080/files/1686098447053_20230316_145211.png','USER');
+INSERT INTO `usuario` VALUES (1,'root','root@gmail.com','e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1',NULL,'ADMIN');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -307,7 +302,7 @@ CREATE TABLE `usuario_ha_visto_pelicula` (
   KEY `fk_Usuario_has_Pelicula_Usuario1_idx` (`id_usuario`),
   CONSTRAINT `fk_Usuario_has_Pelicula_Pelicula2` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Pelicula_Usuario1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -316,7 +311,6 @@ CREATE TABLE `usuario_ha_visto_pelicula` (
 
 LOCK TABLES `usuario_ha_visto_pelicula` WRITE;
 /*!40000 ALTER TABLE `usuario_ha_visto_pelicula` DISABLE KEYS */;
-INSERT INTO `usuario_ha_visto_pelicula` VALUES (1,1,2,'2023-05-09'),(2,1,1,'2023-05-22');
 /*!40000 ALTER TABLE `usuario_ha_visto_pelicula` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -329,4 +323,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-12  1:03:52
+-- Dump completed on 2023-06-13 21:02:08

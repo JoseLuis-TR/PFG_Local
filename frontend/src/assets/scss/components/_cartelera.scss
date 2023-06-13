@@ -1,5 +1,6 @@
 @use "../utilities/_variables.scss" as v;
-// Descripción: Estilos del componente de la cartelera con su slider
+
+// Estilos del componente de cartelera de la página de inicio junto al slider de fechas que lo acompaña
 
 .sliderSinceToday {
   width: 100%;
@@ -44,7 +45,7 @@
 
   &__sliderButton:hover {
     background-color: v.$yellow;
-    font-weight: 700;
+    font-weight: 500;
 
     img {
       filter: invert(0%);
@@ -103,6 +104,7 @@
 
       &--poster {
         grid-area: Poster;
+        border-radius: 10px;
         align-self: center;
         justify-self: center;
         width: 85px;
