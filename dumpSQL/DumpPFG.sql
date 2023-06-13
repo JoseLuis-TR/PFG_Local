@@ -92,7 +92,11 @@ CREATE TABLE `pelicula` (
   `votos` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+>>>>>>> arreglo_proyecto
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,6 +105,10 @@ CREATE TABLE `pelicula` (
 
 LOCK TABLES `pelicula` WRITE;
 /*!40000 ALTER TABLE `pelicula` DISABLE KEYS */;
+<<<<<<< HEAD
+=======
+INSERT INTO `pelicula` VALUES (1,'4124124234','213412341234',123,'1234324','http://localhost:8080/files/1686692907188_ad4c50132bd523560a7e7e7eb36d20e4.jpg','http://localhost:8080/files/1686692907232_eye-open.png','1234123412341241234',0),(2,'23141234231','421341234',123,'21341','http://localhost:8080/files/1686692954796_ad4c50132bd523560a7e7e7eb36d20e4.jpg','http://localhost:8080/files/1686692954807_eye-open.png','2341234123',0);
+>>>>>>> arreglo_proyecto
 /*!40000 ALTER TABLE `pelicula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,4 +331,8 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+<<<<<<< HEAD
 -- Dump completed on 2023-06-13 21:02:08
+=======
+-- Dump completed on 2023-06-14  1:12:54
+>>>>>>> arreglo_proyecto

@@ -15,6 +15,7 @@ import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.List;
 
@@ -41,7 +42,8 @@ public class SesionService {
      * @return Lista de las sesiones de hoy
      */
     public HashMap<Sesion, HashMap<String, Object>> getTodaySessions() {
-        List<Sesion> sesionesHoy = sesionRepository.findByFechaEquals(LocalDate.now());
+        ZoneId zoneId = ZoneId.of("Europe/Madrid");
+        List<Sesion> sesionesHoy = sesionRepository.findByFechaEquals(LocalDate.now(zoneId));
         if(sesionesHoy.isEmpty()) {
             throw new ResourceNotFoundException("No hay sesiones hoy");
         }
