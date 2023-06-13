@@ -3,17 +3,18 @@
     <Loader v-if="isLoading"></Loader>
     <section class="opinions" v-else-if="!isLoading && opinions.length > 0">
       <button class="opinions__add" @click="showForm" v-if="user">
-        <img src="../../assets/icons/add.svg">
+        <img src="../../assets/icons/add.svg" alt="Icono de añadir">
         Añade una opinión
       </button>
       <section class="opinions__container">
         <article class="opinions__container--item" v-for="opinion in opinions">
           <section class="user">
-            <img class="user__img" v-if="opinion.usuario.avatar" :src="opinion.usuario.avatar">
-            <img class="user__img" v-else src="../../assets/images/default.png" alt="Usuario">
+            <img class="user__img" alt="Avatar de usuario" v-if="opinion.usuario.avatar" :src="opinion.usuario.avatar">
+            <img class="user__img" aria="Avatar predeterminado de usuario" v-else src="../../assets/images/default.png"
+              alt="Usuario">
             <button class="user__remove" @click="showConfirmation(opinion.id)"
               v-if="user !== null && (opinion.usuario.id === user.id || user.rol === 'ADMIN')">
-              <img class="user__remove--icon" src="../../assets/icons/trash.svg">
+              <img class="user__remove--icon" src="../../assets/icons/trash.svg" alt="Icono de eliminar">
               Eliminar
             </button>
           </section>
@@ -31,7 +32,7 @@
         Actualmente no hay opiniones de esta película. ¡Sé el primero en opinar!
       </p>
       <button class="noOpinion__button" @click="showForm">
-        <img src="../../assets/icons/add.svg">
+        <img src="../../assets/icons/add.svg" alt="Icono de añadir">
         Añade una opinión
       </button>
     </section>
@@ -48,6 +49,23 @@ import ModalConfirmacion from '../Overlays/ModalConfirmacion.vue'
 import FormModal from '../Overlays/FormModal.vue'
 import { getLoggedUser } from '../../store/user'
 
+/**
+ * @file OpinionMovie.vue - Vista de las opiniones de una película
+ * @author José Luis Tocino Rojo
+ * @see <a href="https://github.com/JoseLuis-TR/PFG_Frontend" target="_blank">Github</a>
+ * @module Component/MovieDetails/OpinionMovie
+ * 
+ * @property {Object} components - Componentes que son utilizados
+ * @property {Object} components.Loader - Componente Loader
+ * @property {Object} components.ModalConfirmacion - Componente ModalConfirmacion
+ * @property {Object} components.FormModal - Componente FormModal
+ * @property {boolean} isLoading - Indica si se está cargando la información
+ * @property {Array} opinions - Lista de opiniones de la película
+ * @property {boolean} showModal - Indica si se muestra el modal de confirmación al eliminar una opinión
+ * @property {number} idComentarioABorrar - Id de la opinión a eliminar
+ * @property {boolean} showAddComment - Indica si se muestra el formulario para añadir una opinión
+ * @property {Object} user - Usuario logueado
+ */
 export default {
   name: "opinionMovie",
   components: {
@@ -113,6 +131,10 @@ export default {
           }
         })
     },
+    /**
+     * Muestra el mensaje de confirmación de eliminacion
+     * @param {number} idComentario - Id de la opinión a eliminar
+     */
     showConfirmation(idComentario) {
       this.idComentarioABorrar = idComentario;
       this.showModal = true

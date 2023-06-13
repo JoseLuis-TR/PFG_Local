@@ -8,7 +8,8 @@
             <input class="modalSesion__pickDate__input" v-model="pickedDate" type="date" :min="today"
               v-on:change="checkAvalaibleDate">
           </section>
-          <section class="modalSesion__error" v-if="pickedDate !== null && avalaibleSalas.length === 0 && !showPickHours">
+          <section class="modalSesion__error"
+            v-if="pickedDate !== null && avalaibleSalas !== null && avalaibleSalas.length === 0 && !showPickHours">
             <p class="modalSesion__error__text">No se pueden añadir más sesiones para la fecha seleccionada</p>
           </section>
           <section class="modalSesion__pickMovie"
@@ -29,7 +30,7 @@
             </select>
           </section>
           <section v-if="pickedDate && selectedMovie && selectedSala && !showPickHours">
-            <button @click="showPickHours = true">
+            <button class="pickHourbtn" @click="showPickHours = true">
               Elegir horarios
             </button>
           </section>
@@ -45,6 +46,28 @@
 </template>
 
 <script>
+
+/**
+ * @file AddSession.vue - Modal para añadir una sesión
+ * @author José Luis Tocino Rojo
+ * @see <a href="https://github.com/JoseLuis-TR/PFG_Frontend" target="_blank">Github</a>
+ * @module Component/Overlays/AddSession
+ * 
+ * @property {Object} data - Datos del componente
+ * @property {Object} data.today - Fecha de hoy
+ * @property {Object} data.pickedSessions - Sesiones que ya existen y no pueden ser sobreescritas
+ * @property {Object} data.allSalas - Todas las salas
+ * @property {Object} data.avalaibleSalas - Salas disponibles para la fecha seleccionada
+ * @property {Object} data.pickedDate - Fecha seleccionada
+ * @property {Object} data.allMovies - Todas las películas
+ * @property {Object} data.selectedMovie - Película seleccionada
+ * @property {Object} data.selectedSala - Sala seleccionada
+ * @property {Object} data.showPickHours - Mostrar el componente para seleccionar horas de la sesión
+ * @property {Object} emits - Eventos que emite el componente
+ * @property {Object} emits.close - Cierra el modal
+ * @property {Object} components - Componentes que se utilizan en la página
+ * @property {Object} components.PickHours - Componente para seleccionar horas de la sesión
+ */
 import PickHours from "./PickHours.vue";
 export default {
   name: "AddSession",
@@ -61,10 +84,15 @@ export default {
       showPickHours: false
     }
   },
+  emits: ['close'],
   components: {
     PickHours
   },
   methods: {
+    /**
+     * Función que obtiene el día que es hoy para poder establecerlo como mínimo en el input de fecha
+     * @returns {String} Fecha de hoy
+     */
     whatDayIsToday() {
       const today = new Date();
       const year = today.getFullYear();
@@ -73,26 +101,48 @@ export default {
 
       return `${year}-${month}-${day}`;
     },
+    /**
+     * Función que obtiene todas las sesiones desde hoy que existen en la base de datos
+     * @returns {Object} Todas las sesiones
+     */
     async getSinceTodaySessions() {
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await fetch(`${apiUrl}/sesiones/desdeHoy`);
       const data = await response.json();
       return data;
     },
+    /**
+     * Función que obtiene todas las salas que existen en la base de datos
+     * @returns {Object} Todas las salas
+     */
     async getAllSalas() {
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await fetch(`${apiUrl}/salas`);
       const data = await response.json();
       return data;
     },
+    /**
+     * Función que obtiene todas las películas que existen en la base de datos
+     * @returns {Object} Todas las películas
+     */
     async getAllMovies() {
       const apiUrl = import.meta.env.VITE_API_URL;
       const response = await fetch(`${apiUrl}/peliculasMini`);
       const data = await response.json();
+      if (data.codigo) {
+        return [];
+      }
       return data;
     },
+    /**
+     * Función que comprueba si en la fecha seleccionada hay sesiones disponibles
+     */
     async checkAvalaibleDate() {
-      const sessionsForPickedDate = this.pickedSessions.filter(session => session.fecha === this.pickedDate);
+      const sessionsForPickedDate = [];
+      if (this.pickedSessions && !this.pickedSessions.codigo) {
+        this.pickedSessions.filter(session => session.fecha === this.pickedDate);
+      }
+
       this.avalaibleSalas = this.allSalas.filter(sala => {
         return !sessionsForPickedDate.some(session => session.salaSesion.id === sala.id);
       });
@@ -107,9 +157,6 @@ export default {
     this.pickedSessions = await this.getSinceTodaySessions();
     this.allSalas = await this.getAllSalas();
     this.allMovies = await this.getAllMovies();
-    console.log(this.allMovies);
-    console.log(this.allSalas);
-    console.log(this.pickedSessions);
   }
 }
 </script>

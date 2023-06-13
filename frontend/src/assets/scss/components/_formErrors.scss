@@ -1,5 +1,6 @@
 @use "../utilities/variables" as v;
-// Descripción: Este componente se encarga de mostrar los errores de validación de los formularios.
+
+// Este componente se encarga de mostrar los errores de validación de los formularios.
 
 .formContainer__body__form--error {
   align-self: center;
@@ -15,7 +16,8 @@
 
     li {
       font-size: 1.5rem;
-      font-weight: 700;
+      font-weight: 500;
+      font-family: v.$manrope;
     }
     li::marker {
       content: "❱ ";

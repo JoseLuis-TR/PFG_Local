@@ -1,5 +1,6 @@
 @use "../utilities/variables" as v;
-// Descripción: Estilos de los formularios de registro y login
+
+// Estilos de los formularios de registro y login
 
 .formBG {
   position: fixed;
@@ -73,7 +74,7 @@
 
       button {
         font-size: 3rem;
-        font-weight: 700;
+        font-weight: 500;
         color: v.$white;
         width: fit-content;
         align-self: center;
