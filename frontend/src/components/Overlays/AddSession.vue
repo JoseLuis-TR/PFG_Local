@@ -138,9 +138,9 @@ export default {
      * Función que comprueba si en la fecha seleccionada hay sesiones disponibles
      */
     async checkAvalaibleDate() {
-      const sessionsForPickedDate = [];
+      let sessionsForPickedDate = [];
       if (this.pickedSessions && !this.pickedSessions.codigo) {
-        this.pickedSessions.filter(session => session.fecha === this.pickedDate);
+        sessionsForPickedDate = this.pickedSessions.filter(session => session.fecha === this.pickedDate);
       }
 
       this.avalaibleSalas = this.allSalas.filter(sala => {

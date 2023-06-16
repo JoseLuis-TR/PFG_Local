@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.32, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: cineshaven
+-- Host: localhost    Database: cineshaven
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.33
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -61,7 +61,7 @@ CREATE TABLE `comentario` (
   KEY `fk_Usuario_has_Pelicula_Usuario_idx` (`id_usuario`),
   CONSTRAINT `fk_Usuario_has_Pelicula_Pelicula1` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Pelicula_Usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,6 +70,7 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
+INSERT INTO `comentario` VALUES (1,2,9,'Para que digan que segundas partes nunca fueron buenas!','2023-06-15 21:45:23'),(2,2,10,'Una peli preciosa y recomendable para toda la familia :)','2023-06-15 21:45:53'),(3,2,12,'Uff... super rara, no se si recomendarla :(','2023-06-15 21:46:22'),(4,2,7,'Un clásico <3','2023-06-15 21:46:39'),(5,2,3,'Nunca habia visto cine asiático...creo que debería de empezar','2023-06-15 21:47:27'),(6,1,9,'Desde luego una buena peli de superheroes','2023-06-15 22:45:53');
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +93,7 @@ CREATE TABLE `pelicula` (
   `votos` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,6 +102,7 @@ CREATE TABLE `pelicula` (
 
 LOCK TABLES `pelicula` WRITE;
 /*!40000 ALTER TABLE `pelicula` DISABLE KEYS */;
+INSERT INTO `pelicula` VALUES (3,'Old boy','Park Chan-Wook',90,'https://www.youtube.com/watch?v=tAaBkFChaRg','http://localhost:8080/files/1686861160137_14336039_max.jpg','http://localhost:8080/files/1686861160158_16 (785).jpg','Oh Dae-su es un hombre de negocios coreano que un día es secuestrado y confinado durante años en una celda en la que sólo hay una televisión. Y, sin embargo, ignora por qué razón está allí... Segunda parte de la \"trilogía de la venganza\" de Park Chan-wook.',50),(4,'El Padrino','Francis Ford Coppola',170,'https://www.youtube.com/watch?v=iOyQx7MXaz0','http://localhost:8080/files/1686861299453_707663_poster_l.jpg','http://localhost:8080/files/1686861299455_Godfather.mkv_snapshot_00.03.45_2022.03.13_15.40.32-scaled.jpg','América, años 40. Don Vito Corleone (Marlon Brando) es el respetado y temido jefe de una de las cinco familias de la mafia de Nueva York. Tiene cuatro hijos: Connie (Talia Shire), el impulsivo Sonny (James Caan), el pusilánime Fredo (John Cazale) y Michael (Al Pacino), que no quiere saber nada de los negocios de su padre. Cuando Corleone, en contra de los consejos de \'Il consigliere\' Tom Hagen (Robert Duvall), se niega a participar en el negocio de las drogas, el jefe de otra banda ordena su asesinato. Empieza entonces una violenta y cruenta guerra entre las familias mafiosas.',0),(5,'La ballena','Darren Aronofsky',120,'https://youtu.be/nWiQodhMvz4','http://localhost:8080/files/1686861530963_MV5BZDQ4Njg4YTctNGZkYi00NWU1LWI4OTYtNmNjOWMyMjI1NWYzXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_FMjpg_UX1000_.jpg','http://localhost:8080/files/1686861530965_brendan-fraser-the-whale-072622-37aadb79889f40c297e0c82a649f1543.jpg','Un solitario profesor de inglés con obesidad severa (Brendan Fraser) intenta reconectar con su hija adolescente en una última oportunidad de redención.',25),(6,'Doce hombres sin piedad','Sidney Lumet',95,'https://youtu.be/hiyJZP-MlxM','http://localhost:8080/files/1686862860809_98552.jpg','http://localhost:8080/files/1686862860812_doce-hombres-sin-piedad-1957-1562070701.jpg','Los doce miembros de un jurado deben juzgar a un adolescente acusado de haber matado a su padre. Todos menos uno están convencidos de la culpabilidad del acusado. El que disiente intenta con sus razonamientos introducir en el debate una duda razonable que haga recapacitar a sus compañeros para que cambien el sentido de su voto.',0),(7,'Pulp Fiction','Quentin Tarantino ',100,'https://www.youtube.com/watch?v=s7EdQ4FqbhY','http://localhost:8080/files/1686862976055_pulp-fiction-cover-i1288.jpg','http://localhost:8080/files/1686862976058_22 (847).jpg','Jules y Vincent, dos asesinos a sueldo con no demasiadas luces, trabajan para el gángster Marsellus Wallace. Vincent le confiesa a Jules que Marsellus le ha pedido que cuide de Mia, su atractiva mujer. Jules le recomienda prudencia porque es muy peligroso sobrepasarse con la novia del jefe. Cuando llega la hora de trabajar, ambos deben ponerse \"manos a la obra\". Su misión: recuperar un misterioso maletín.',10),(8,'Asteroid City','Wes Anderson',120,'https://youtu.be/8pqgyzBespY','http://localhost:8080/files/1686863071958_poster-de-asteroid-city-de-wes-anderson-original.jpg','http://localhost:8080/files/1686863071960_Steve-Carell.webp','En 1955, colegiales y padres de todo el país se reúnen para un concurso escolar dedicado a la observación de fenómenos astronómicos (Junior Stargazer Convention) que se lleva a cabo en una ciudad ficticia del desierto estadounidense llamada Asteroid City. La convención se verá espectacularmente interrumpida por eventos que cambian el mundo.',0),(9,'Spider-Man: Across the Spider-Verse','Joaquim Dos Santos',100,'https://www.youtube.com/watch?v=cqGjhVJWtEg','http://localhost:8080/files/1686863172525_MV5BNzQ1ODUzYjktMzRiMS00ODNiLWI4NzQtOTRiN2VlNTNmODFjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg','http://localhost:8080/files/1686863172527_spider-man-across-the-spider-verse-part-one-first-teaser-tra_fmd8.1080.webp','Tras reencontrarse con Gwen Stacy, el amigable vecindario de Spider-Man de Brooklyn al completo es catapultado a través del Multiverso, donde se encuentra con un equipo de Spidermans encargados de proteger su propia existencia. Pero cuando los héroes se enfrentan sobre cómo manejar una nueva amenaza, Miles se encuentra enfrentado a las otras Arañas y debe redefinir lo que significa ser un héroe para poder salvar a la gente que más quiere.',90),(10,' El viaje de Chihiro ','Hayao Miyazaki',80,'https://youtu.be/5Fgq4Osh6XQ','http://localhost:8080/files/1686863257411_POSTER_CHIHIRO_2021.jpg','http://localhost:8080/files/1686863257413_el-viaje-de-chihiro-estreno-cines_d2yj.jpg','Chihiro es una niña de diez años que viaja en coche con sus padres. Después de atravesar un túnel, llegan a un mundo fantástico, en el que no hay lugar para los seres humanos, sólo para los dioses de primera y segunda clase. Cuando descubre que sus padres han sido convertidos en cerdos, Chihiro se siente muy sola y asustada',0),(11,'Whiplash','Damien Chazelle',90,'https://youtu.be/6x79Z5iBsJ4','http://localhost:8080/files/1686863339760_il_fullxfull.4230665308_r13v.webp','http://localhost:8080/files/1686863339765_6311.jpg','El objetivo de Andrew Neiman (Miles Teller), un joven y ambicioso baterista de jazz, es triunfar en el elitista Conservatorio de Música de la Costa Este. Marcado por el fracaso de la carrera literaria de su padre, Andrew alberga sueños de grandeza. Terence Fletcher (J.K. Simmons), un profesor conocido tanto por su talento como por sus rigurosos métodos de enseñanza, dirige el mejor conjunto de jazz del Conservatorio. Cuando Fletcher elige a Andrew para formar parte del grupo, la vida del joven cambiará.',2),(12,'Eraserhead','David Lynch',100,'https://www.youtube.com/watch?v=7WAzFWu2tVw&pp=ygUSRXJhc2VyaGVhZCB0cmFpbGVy','http://localhost:8080/files/1686863630475_eraserhead-sm-web.jpg','http://localhost:8080/files/1686863630479_20 (356).jpg','Henry Spencer, un joven depresivo y asustadizo, sufre desde pequeño unas extrañas pesadillas de las que intenta liberarse a través de su imaginación. Un día, su amiga Mary lo invita a cenar a casa; se entera entonces de que ha sido padre de un bebé prematuro y no humano. Mary y el extraño bebé se instalan en casa de Henry, donde un escenario iluminado tras el radiador muestra la presencia de una mujer.',0);
 /*!40000 ALTER TABLE `pelicula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,7 +123,7 @@ CREATE TABLE `reserva` (
   KEY `fk_Reserva_Sesion1_idx` (`id_sesion`),
   CONSTRAINT `fk_Reserva_Sesion1` FOREIGN KEY (`id_sesion`) REFERENCES `sesion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Reserva_Usuario1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +132,7 @@ CREATE TABLE `reserva` (
 
 LOCK TABLES `reserva` WRITE;
 /*!40000 ALTER TABLE `reserva` DISABLE KEYS */;
+INSERT INTO `reserva` VALUES (1,'2023-06-15',2,3);
 /*!40000 ALTER TABLE `reserva` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +152,7 @@ CREATE TABLE `reserva_tiene_asiento` (
   KEY `fk_Reserva_has_Asiento_Reserva1_idx` (`id_reserva`),
   CONSTRAINT `fk_Reserva_has_Asiento_Asiento1` FOREIGN KEY (`id_asiento`) REFERENCES `asiento` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Reserva_has_Asiento_Reserva1` FOREIGN KEY (`id_reserva`) REFERENCES `reserva` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,6 +161,7 @@ CREATE TABLE `reserva_tiene_asiento` (
 
 LOCK TABLES `reserva_tiene_asiento` WRITE;
 /*!40000 ALTER TABLE `reserva_tiene_asiento` DISABLE KEYS */;
+INSERT INTO `reserva_tiene_asiento` VALUES (1,1,55),(2,1,42),(3,1,43);
 /*!40000 ALTER TABLE `reserva_tiene_asiento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -205,7 +209,7 @@ CREATE TABLE `sesion` (
   KEY `fk_Sala_has_Pelicula_Sala1_idx` (`id_sala`),
   CONSTRAINT `fk_Sala_has_Pelicula_Pelicula1` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Sala_has_Pelicula_Sala1` FOREIGN KEY (`id_sala`) REFERENCES `sala` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -214,6 +218,7 @@ CREATE TABLE `sesion` (
 
 LOCK TABLES `sesion` WRITE;
 /*!40000 ALTER TABLE `sesion` DISABLE KEYS */;
+INSERT INTO `sesion` VALUES (1,1,10,'2023-06-12','12:12:00'),(2,1,10,'2023-06-15','12:12:00'),(3,1,8,'2023-06-16','12:12:00'),(4,1,6,'2023-06-17','12:12:00'),(5,1,6,'2023-06-18','12:12:00'),(6,1,4,'2023-06-19','12:33:00'),(7,1,6,'2023-06-20','12:12:00'),(8,1,6,'2023-06-20','15:07:00'),(9,1,12,'2023-06-21','12:45:00'),(10,1,12,'2023-06-21','15:44:00'),(11,1,8,'2023-06-22','15:32:00'),(12,1,8,'2023-06-22','23:55:00'),(13,1,10,'2023-06-23','22:10:00'),(14,1,8,'2023-06-16','14:22:00'),(15,1,6,'2023-06-15','04:32:00'),(16,2,10,'2023-06-16','22:10:00'),(17,2,4,'2023-06-17','12:22:00'),(18,2,4,'2023-06-17','23:04:00'),(19,2,4,'2023-06-17','17:06:00'),(20,2,12,'2023-06-18','10:10:00'),(21,2,12,'2023-06-18','12:12:00'),(22,2,12,'2023-06-18','14:14:00'),(23,2,6,'2023-06-19','10:10:00'),(24,2,6,'2023-06-19','12:12:00'),(25,2,6,'2023-06-19','14:14:00'),(26,2,6,'2023-06-19','16:16:00'),(27,2,6,'2023-06-19','18:18:00'),(28,2,8,'2023-06-20','21:21:00'),(29,2,10,'2023-06-21','10:10:00'),(30,2,4,'2023-06-22','23:23:00'),(31,2,6,'2023-06-23','10:00:00'),(32,2,6,'2023-06-23','12:00:00'),(33,2,6,'2023-06-23','14:00:00'),(34,2,6,'2023-06-23','16:00:00'),(35,2,6,'2023-06-23','18:00:00');
 /*!40000 ALTER TABLE `sesion` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -272,7 +277,7 @@ CREATE TABLE `usuario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `nick_UNIQUE` (`nick`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -281,7 +286,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (1,'root','root@gmail.com','e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1',NULL,'ADMIN');
+INSERT INTO `usuario` VALUES (1,'root','root@gmail.com','e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1',NULL,'ADMIN'),(2,'ernesto','ernesto@gmail.com','e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1',NULL,'USER');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +307,7 @@ CREATE TABLE `usuario_ha_visto_pelicula` (
   KEY `fk_Usuario_has_Pelicula_Usuario1_idx` (`id_usuario`),
   CONSTRAINT `fk_Usuario_has_Pelicula_Pelicula2` FOREIGN KEY (`id_pelicula`) REFERENCES `pelicula` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_Usuario_has_Pelicula_Usuario1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -311,6 +316,7 @@ CREATE TABLE `usuario_ha_visto_pelicula` (
 
 LOCK TABLES `usuario_ha_visto_pelicula` WRITE;
 /*!40000 ALTER TABLE `usuario_ha_visto_pelicula` DISABLE KEYS */;
+INSERT INTO `usuario_ha_visto_pelicula` VALUES (1,2,8,'2023-06-15');
 /*!40000 ALTER TABLE `usuario_ha_visto_pelicula` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -323,4 +329,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-14  2:03:45
+-- Dump completed on 2023-06-16  1:33:25

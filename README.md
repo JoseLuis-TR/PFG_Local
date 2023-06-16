@@ -22,6 +22,18 @@ En cuanto se complete la preparación de los tres contenedores (base de datos, b
 
 - http://localhost:5173
 
+## Datos y usuarios en la base de datos
+
+El despliegue viene ya con varios datos cargados para no empezar de cero. Además viene cargado con dos usuarios, uno más importante por ser el administrador y aquel capaz de añadir/editar/eliminar peliculas y añadir sesiones, cuyas credenciales son:
+
+- **E-mail :** root@gmail.com
+- **Clave :** Pestillo.123
+
+Además existe un usuario normal cargado que puede usarse pero no es necesario, puede crearse un usuario propio. Las credenciales del usuario normal son:
+
+- **E-mail :** ernesto@gmail.com
+- **Clave :** Pestillo.123
+
 ### Puntos a tener en cuenta con el despliegue local
 
 Si surge algún error con el despliegue en local, he localizado dos posibles errores que pueden generar ese problema:
@@ -40,12 +52,3 @@ Este es un error que se localizó a tiempo y gracias al ajuste añadido en el gi
 Al correr los contenedores de docker en máquinas linux, puede llegar a generarse un error (sobre todo en el back) a la hora de ejecutarse en caso de que el archivo mvnw y el script wait-for-it esten guardados con un formato de salto de línea CRLF en vez de LF.
 
 En caso de tener este error al bajarse el repositorio de github, la solución queda en abrir esos dos archivos en algún editor de código (VSCode, Notepad++...), cambiarles el formato de los saltos de línea a LF y guardar.
-
-## Datos en la base de datos
-
-A diferencia del despliegue online, en el despliegue local se ha decidido incluir el dump de la base de datos pero completamente vacía, solamente con los datos de las salas y los asientos (ya que estos no se pueden modificar en la aplicación per se) además del usuario administrador.
-
-Las credenciales para poder usar este usuario y poder realizar las funciones de gestión del cine (Añadir/editar peliculas y añadir sesiones) son las siguientes:
-
-- **E-mail :** root@gmail.com
-- **Clave :** Pestillo.123
