@@ -1,0 +1,584 @@
+{
+	"info": {
+		"_postman_id": "d3a57dd9-45fd-4cec-ac1d-0de311a05e33",
+		"name": "PFG-ONLINE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24857816"
+	},
+	"item": [
+		{
+			"name": "Asientos-ONLINE",
+			"item": [
+				{
+					"name": "GET Asientos de una sala por su id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/asientos/sala/1"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Todos los asientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/asientos/"
+					},
+					"response": []
+				}
+			],
+			"description": "# Asientos\n\nAlgo"
+		},
+		{
+			"name": "Comentario-ONLINE",
+			"item": [
+				{
+					"name": "ADD Comentario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\": 1,\r\n    \"id_pelicula\": 9,\r\n    \"texto\": \"Lorem Ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://pfgbackend-production.up.railway.app/comentarios"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Comentarios de una pelicula por su ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/comentarios/pelicula/9/paginado/0"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Comentario por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/comentarios/7"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pelicula-ONLINE",
+			"item": [
+				{
+					"name": "GET Todas las peliculas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/peliculas/page?numberPage=0",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"peliculas",
+								"page"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Pelicula por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/peliculas?idPelicula=9",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"peliculas"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Top 5 peliculas por votos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/peliculas/top"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Todas las peliculas [FORMATO MINI] Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/peliculasMini"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Pelicula por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/peliculas?idPelicula=12",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"peliculas"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Nueva pelicula [Sin archivo][No se usa]",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Oldboy2\",\r\n    \"director\":\"Park Chan-Wook\",\r\n    \"duracion\":90,\r\n    \"trailer\":\"www.google.com\",\r\n    \"poster\":\"www.google.com\",\r\n    \"captura\":\"www.google.com\",\r\n    \"sinopsis\":\"Busca venganza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://pfgbackend-production.up.railway.app/peliculas"
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Nueva pelicula [Con archivo de poster y captura]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nuevaPelicula",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/createMovie.json"
+								},
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/posterEjemplo.png"
+								},
+								{
+									"key": "captura",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/capturaEjemplo.png"
+								}
+							]
+						},
+						"url": "https://pfgbackend-production.up.railway.app/peliculas/archivos"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Pelicula por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "peliculaToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/updatemovie.json"
+								},
+								{
+									"key": "posterToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/posterEjemplo.png"
+								},
+								{
+									"key": "capturaToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/capturaEjemplo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/peliculas?idPelicula=13",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"peliculas"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reserva-ONLINE",
+			"item": [
+				{
+					"name": "POST Usuario crea reserva",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\": null,\r\n    \"id_sesion\": 9,\r\n    \"asientos\": [1,2,3]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://pfgbackend-production.up.railway.app/reservas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sala-ONLINE",
+			"item": [
+				{
+					"name": "GET Todas las salas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/salas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sesion-ONLINE",
+			"item": [
+				{
+					"name": "GET Sesiones de hoy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/sesiones/hoy"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Sesiones desde hoy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/sesiones/desdeHoy"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Sesiones desde hoy de una pelicula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/sesiones/desdeHoy/pelicula?idPelicula=10",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"sesiones",
+								"desdeHoy",
+								"pelicula"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Asientos reservados en sesión",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/sesiones/asientos/9"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nueva sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\":\"2023-08-06\",\r\n    \"horas\":\"19:00,20:30\",\r\n    \"id_pelicula\":10,\r\n    \"id_sala\":1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://pfgbackend-production.up.railway.app/sesiones"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Una sesión",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/sesiones?idSesion=37",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"sesiones"
+							],
+							"query": [
+								{
+									"key": "idSesion",
+									"value": "37"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario-ONLINE",
+			"item": [
+				{
+					"name": "GET Todos los usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://pfgbackend-production.up.railway.app/usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Usuario por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/usuario?idUsuario=1",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nick\" : \"user\",\r\n    \"email\": \"user@gmail.com\",\r\n    \"clave\": \"e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://pfgbackend-production.up.railway.app/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Nick ya existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/usuario/nick?nickBuscado=root",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"usuario",
+								"nick"
+							],
+							"query": [
+								{
+									"key": "nickBuscado",
+									"value": "root"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Email ya existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/usuario/email?emailBuscado=root@gmail.com",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"usuario",
+								"email"
+							],
+							"query": [
+								{
+									"key": "emailBuscado",
+									"value": "root@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Un usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/updateUser.json"
+								},
+								{
+									"key": "newAvatar",
+									"type": "file",
+									"src": "/C:/Users/Jose Luis Toc/Downloads/ta2r9xv1npv81.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://pfgbackend-production.up.railway.app/usuario?idUsuario=3",
+							"protocol": "https",
+							"host": [
+								"pfgbackend-production",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

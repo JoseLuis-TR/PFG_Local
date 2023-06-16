@@ -1,0 +1,714 @@
+{
+	"info": {
+		"_postman_id": "576f9b61-70f8-43e9-994e-666845f3e6e0",
+		"name": "PFG-LOCAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24857816"
+	},
+	"item": [
+		{
+			"name": "Asientos",
+			"item": [
+				{
+					"name": "GET Asientos de una sala por su id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/asientos/sala/1"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Todos los asientos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/asientos/"
+					},
+					"response": []
+				}
+			],
+			"description": "# Asientos\n\nAlgo"
+		},
+		{
+			"name": "Comentario",
+			"item": [
+				{
+					"name": "ADD Comentario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\": 1,\r\n    \"id_pelicula\": 9,\r\n    \"texto\": \"Lorem Ipsum\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/comentarios"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Comentarios de una pelicula por su ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/comentarios/pelicula/9/paginado/0"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Comentario por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/comentarios/6"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pelicula",
+			"item": [
+				{
+					"name": "GET Todas las peliculas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/peliculas/page?numberPage=0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"page"
+							],
+							"query": [
+								{
+									"key": "numberPage",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Pelicula por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/peliculas?idPelicula=9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "9"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Top 10 peliculas por votos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/peliculas/top"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Todas las peliculas [FORMATO MINI]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/peliculasMini"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Pelicula por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "localhost:8080/delPelicula/13"
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Nueva pelicula [Sin archivo][No se usa]",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Oldboy\",\r\n    \"director\":\"Park Chan-Wook\",\r\n    \"duracion\":90,\r\n    \"trailer\":\"www.google.com\",\r\n    \"poster\":\"www.google.com\",\r\n    \"captura\":\"www.google.com\",\r\n    \"sinopsis\":\"Busca venganza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/peliculas"
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Nueva pelicula [Con archivo de poster y captura]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "nuevaPelicula",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/createMovie.json"
+								},
+								{
+									"key": "poster",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/posterEjemplo.png"
+								},
+								{
+									"key": "captura",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/capturaEjemplo.png"
+								}
+							]
+						},
+						"url": "localhost:8080/peliculas/archivos"
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE Pelicula por ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "peliculaToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/updatemovie.json"
+								},
+								{
+									"key": "posterToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/posterEjemplo.png"
+								},
+								{
+									"key": "capturaToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/capturaEjemplo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/peliculas?idPelicula=13",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Nuevo voto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/peliculas/voto?idPelicula=12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"peliculas",
+								"voto"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reserva",
+			"item": [
+				{
+					"name": "POST Usuario crea reserva",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_usuario\": null,\r\n    \"id_sesion\": 9,\r\n    \"asientos\": [1,2,3]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/reservas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sala",
+			"item": [
+				{
+					"name": "GET Todas las salas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/salas"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sesion",
+			"item": [
+				{
+					"name": "GET Sesiones de hoy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/sesiones/hoy"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Sesiones desde hoy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/sesiones/desdeHoy"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Sesiones desde hoy de una pelicula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sesiones/desdeHoy/pelicula?idPelicula=8",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sesiones",
+								"desdeHoy",
+								"pelicula"
+							],
+							"query": [
+								{
+									"key": "idPelicula",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Asientos reservados en sesión",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8080/sesiones/asientos/28"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nueva sesion",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fecha\":\"2023-08-11\",\r\n    \"horas\":\"19:00,20:30,21:30\",\r\n    \"id_pelicula\":10,\r\n    \"id_sala\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/sesiones"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Una sesión [No se llega a usar}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/sesiones?idSesion=2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sesiones"
+							],
+							"query": [
+								{
+									"key": "idSesion",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "GET Todos los usuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/usuarios"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Usuario por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "localhost:8080/usuario?idUsuario=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD Usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nick\" : \"prueba\",\r\n    \"email\": \"prueba@gmail.com\",\r\n    \"clave\": \"e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/usuario"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Nick ya existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuario/nick?nickBuscado=prueba",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"nick"
+							],
+							"query": [
+								{
+									"key": "nickBuscado",
+									"value": "prueba"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Email ya existe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuario/email?emailBuscado=prueba@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"email"
+							],
+							"query": [
+								{
+									"key": "emailBuscado",
+									"value": "prueba@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Un usuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userToUpdate",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/updateUser.json"
+								},
+								{
+									"key": "newAvatar",
+									"type": "file",
+									"src": "/C:/PuntoCentral/99.grado/Codigos/PFG/PFG_Backend/ArchivosParaRequest/avatarEjemplo.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/usuario?idUsuario=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							],
+							"query": [
+								{
+									"key": "idUsuario",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Login de usuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"root@gmail.com\",\r\n    \"clave\": \"e1c599b89bc64d6b30d90be12a46876fa68b34604aaeec8806232107b21989b1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8080/usuario/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "API TMDB [No dio tiempo a añadir su funcionalidad]",
+			"item": [
+				{
+					"name": "Info de una peli en español",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.themoviedb.org/3/movie/550?api_key=9b1ae3ac4ab61e66aa675fb514e871cb&language=es",
+							"protocol": "https",
+							"host": [
+								"api",
+								"themoviedb",
+								"org"
+							],
+							"path": [
+								"3",
+								"movie",
+								"550"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b1ae3ac4ab61e66aa675fb514e871cb"
+								},
+								{
+									"key": "language",
+									"value": "es"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Trailer de una pelicula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.themoviedb.org/3/movie/550/videos?api_key=9b1ae3ac4ab61e66aa675fb514e871cb",
+							"protocol": "https",
+							"host": [
+								"api",
+								"themoviedb",
+								"org"
+							],
+							"path": [
+								"3",
+								"movie",
+								"550",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b1ae3ac4ab61e66aa675fb514e871cb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Poster y capturas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.themoviedb.org/3/movie/550/images?api_key=9b1ae3ac4ab61e66aa675fb514e871cb",
+							"protocol": "https",
+							"host": [
+								"api",
+								"themoviedb",
+								"org"
+							],
+							"path": [
+								"3",
+								"movie",
+								"550",
+								"images"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b1ae3ac4ab61e66aa675fb514e871cb"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por nombre",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.themoviedb.org/3/search/movie?api_key=9b1ae3ac4ab61e66aa675fb514e871cb&query=Mother and Sisters&include_adult=false",
+							"protocol": "https",
+							"host": [
+								"api",
+								"themoviedb",
+								"org"
+							],
+							"path": [
+								"3",
+								"search",
+								"movie"
+							],
+							"query": [
+								{
+									"key": "api_key",
+									"value": "9b1ae3ac4ab61e66aa675fb514e871cb"
+								},
+								{
+									"key": "query",
+									"value": "Mother and Sisters"
+								},
+								{
+									"key": "include_adult",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

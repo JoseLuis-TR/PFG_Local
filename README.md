@@ -4,11 +4,26 @@
   <img width="280" alt="logo" src="https://user-images.githubusercontent.com/92323915/220186818-007160d6-0e37-430b-9e8f-7bc8cacf21ca.png">
 </p>
 
+# Índice
+
+  - [¿Qué es este repositorio?](#qué-es-este-repositorio)
+  - [¿Donde puedo ver la aplicación desplegada?](#donde-puedo-ver-la-aplicación-desplegada)
+  - [¿Que necesitas para poner en funcionamiento la versión en local?](#que-necesitas-para-poner-en-funcionamiento-la-versión-en-local)
+  - [Datos y usuarios en la base de datos](#datos-y-usuarios-en-la-base-de-datos)
+  - [Pruebas a la API con Postman e Insomnia](#pruebas-a-la-api-con-postman-e-insomnia)
+  - [Posibles problemas con el despliegue en local](#posibles-problemas-con-el-despliegue-en-local)
+
 ## ¿Qué es este repositorio?
 
-Aquí encontrarás el código tanto del back como del front (y un dump vacio de la base de datos, solo con la estructura) para que pueda ser comodamente desplegado en local usando Docker.
+Aquí encontrarás el código tanto del back como del front y un dump con los mismos datos con los que se ha desplegado la aplicación de forma online, para que pueda ser comodamente desplegado en local usando Docker.
 
-No existen diferencias en el código respecto a los otros repositorios del proyecto divididos en back y front, la única diferencia se encuentra en las conexiones a la base de datos y al back (y que la base de datos en el despliegue online tiene algunos datos, para poder ver la diferencia entre un despliegue desde cero y otro con algo más de información)
+No existen diferencias en el código respecto a los otros repositorios del proyecto divididos en back y front, la única diferencia se encuentra en las conexiones a la base de datos y al back.
+
+**IMPORTANTE -** La información mostrada en este README (por ejemplo los usuarios ya cargados) afecta tanto al despliegue en local como al despliegue online ya que de inicio estan cargados con los mismos datos en sus bases de datos.
+
+## ¿Donde puedo ver la aplicación desplegada?
+
+En el siguiente enlace -> [PFG - Cines Haven](https://pfg-frontend.vercel.app/#/)
 
 ## ¿Que necesitas para poner en funcionamiento la versión en local?
 
@@ -34,11 +49,18 @@ Además existe un usuario normal cargado que puede usarse pero no es necesario, 
 - **E-mail :** ernesto@gmail.com
 - **Clave :** Pestillo.123
 
-### Puntos a tener en cuenta con el despliegue local
+## Pruebas a la API con Postman e Insomnia
+
+Si se desea probar la API directamente desde Postman o Insomnia, se puede descargar la carpeta llamada **POSTMAN-INSOMNIA EXPORT** que contiene dos exportaciones válidas para ambos programas, en la cual una ataca a la API desplegada online y otra a la API desplegada en local.
+
+Con ambos archivos se adjunta una carpeta con tres archivos JSON que son necesarios para las llamadas que implican subir archivos, ya que se necesita mandar por un lado los datos en formato JSON y por otro el archivo en sí. Además se incluyen algunas imagenes de ejemplo para poder probar la subida de archivos.
+
+## Posibles problemas con el despliegue en local
 
 Si surge algún error con el despliegue en local, he localizado dos posibles errores que pueden generar ese problema:
 
 **1. Uso de puertos**
+
 Si se tienen otros despliegues abiertos hay que tener cuidado de que no esten utilizando los mismos puertos. Este despliegue expone tres puertos diferentes
 
 - **Puerto 5173 ->** Front
